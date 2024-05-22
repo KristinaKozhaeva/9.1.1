@@ -12,6 +12,6 @@ public interface NoteDao {
 
     public Note findById(long id);
 
-    void delete(long id);
+    boolean deleteById(long id);
 }
 

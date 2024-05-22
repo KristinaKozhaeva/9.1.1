@@ -4,7 +4,7 @@ import org.example.model.Note;
 
 import java.util.*;
 
-public class NoteDaoImpl implements NoteDao{
+public class NoteDaoImpl implements NoteDao {
     private final Map<Long, Note> notes = new HashMap<>();
 
     @Override
@@ -23,7 +23,7 @@ public class NoteDaoImpl implements NoteDao{
     }
 
     @Override
-    public void delete(long id) {
-        notes.remove(id);
+    public boolean deleteById(long id) {
+        return notes.remove(id) != null;
     }
 }
