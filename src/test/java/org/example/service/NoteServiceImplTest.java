@@ -4,6 +4,7 @@ import org.example.dao.NoteDao;
 import org.example.dao.NoteDaoImpl;
 import org.example.model.Note;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -20,7 +21,7 @@ class NoteServiceImplTest {
 
     private NoteServiceImpl noteService;
 
-    NoteServiceImpl serviceImpl = new NoteServiceImpl(noteDao);
+    private NoteServiceImpl serviceImpl = new NoteServiceImpl(noteDao);
 
 
     @BeforeEach
@@ -29,6 +30,7 @@ class NoteServiceImplTest {
         noteService = new NoteServiceImpl(noteDao);
     }
 
+    @DisplayName("Тестирование удаления заметки по невалидному ID")
     @Test
     void testRemoveNoteWithInvalidId() {
         long id = 26;
@@ -36,6 +38,7 @@ class NoteServiceImplTest {
         assertThrows(NumberFormatException.class, () -> noteService.removeNoteById(Long.parseLong("двадцать шесть")));
     }
 
+    @DisplayName("Тестирование удаления заметки по валидному ID")
     @Test
     void testRemoveNoteWithValidId() {
         long id = 88;
@@ -47,6 +50,7 @@ class NoteServiceImplTest {
         assertDoesNotThrow(() -> noteService.removeNoteById(id));
     }
 
+    @DisplayName("Тестирование создания заметки с валидно заполненными полями")
     @Test
     void testCreateNotes() {
         long id = 88;
@@ -64,6 +68,7 @@ class NoteServiceImplTest {
         System.out.println(note.getText() + " // " + savedNote.getText()); // это для собственной уверенности
     }
 
+    @DisplayName("Тестирование создания заметки с невалидно заполненными полями")
     @Test
     void testCreateNotesWithInvalid() {
         long id = 88;
@@ -73,5 +78,4 @@ class NoteServiceImplTest {
         Note note = new Note(id, text, labels);
         assertThrows(IllegalArgumentException.class, () -> noteService.createNote(text, labels));
     }
-
 }

@@ -17,11 +17,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ControllerTest {
 
-    NoteServiceImpl noteService = Mockito.mock(NoteServiceImpl.class);
+    private NoteServiceImpl noteService = Mockito.mock(NoteServiceImpl.class);
 
-    Controller controller = new Controller(noteService);
+    private Controller controller = new Controller(noteService);
 
-    Controller spyService = Mockito.spy(controller);
+    private Controller spyService = Mockito.spy(controller);
 
     @DisplayName("Тестирование валидации текста заметки с невалидными данными")
     @Test

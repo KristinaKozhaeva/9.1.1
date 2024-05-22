@@ -9,11 +9,11 @@ public interface NoteService {
 
     String getHelp();
 
-    void newNote();  //- создать новую заметку
+    void createNote(String text, Set<String> labels);  //- создать новую заметку
 
-    public List<Note> listNotes(Set<String> filters); //- выводит все заметки на экран
+    public List<Note> getlistNotes(Set<String> filters); //- выводит все заметки на экран
 
-    void removeNote(); //- удаляет заметку
+    void removeNoteById(long id); //- удаляет заметку
 
     void exportNote(); //- сохраняет все заметки в текстовый файл и выводит имя сохраненного файла
 

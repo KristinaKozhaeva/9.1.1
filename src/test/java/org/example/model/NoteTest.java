@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class NoteTest {
 
+    @DisplayName("Тестирование создания уникальных ID")
     @Test
     public void testGenerateUniqueId() {
         Set<Long> uniqueId = new HashSet<>();
